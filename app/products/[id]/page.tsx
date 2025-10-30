@@ -1,6 +1,15 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
+export async function generateStaticParams() {
+  const res = await fetch("https://dummyjson.com/products");
+  const { products } = await res.json();
+
+  return products.map((product: any) => ({
+    id: product.id.toString(),
+  }));
+}
+
 export async function generateMetadata({
   params,
 }: {
