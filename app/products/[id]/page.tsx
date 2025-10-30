@@ -14,7 +14,14 @@ export async function generateMetadata({
     title: product.title,
     description: product.description,
     openGraph: {
-      images: [product.thumbnail],
+      images: [
+        {
+          url: product.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: product.title,
+        },
+      ],
       title: product.title,
       type: "article",
       description: product.description,
